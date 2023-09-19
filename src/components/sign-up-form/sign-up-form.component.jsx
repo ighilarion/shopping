@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { createUserDocumentFromAuth, signInWithUserAndPassword } from '../../utils/firebase/firebase.utils';
+import { createUserDocumentFromAuth, signUpWithUserAndPassword } from '../../utils/firebase/firebase.utils';
 import FormInput from '../form-input/form-input.component';
 import './sign-up-form.styles.scss'
 import Button from '../button/button.component';
@@ -31,7 +31,7 @@ function SignUpForm() {
             return;
         }
         try {
-            const { user } = await signInWithUserAndPassword(email, password);
+            const { user } = await signUpWithUserAndPassword(email, password);
             await createUserDocumentFromAuth(user, { displayName });
             resetFormField();
 
