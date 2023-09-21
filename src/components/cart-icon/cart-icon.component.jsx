@@ -6,12 +6,14 @@ import { CartContext } from '../../context/cart.context'
 
 function CartIcon() {
 
-    const { isCartOpen, toggleCart } = useContext(CartContext)
+    const { isCartOpen, toggleCart, cartCount } = useContext(CartContext)
 
-    const toggleCartOpen = () => toggleCart(!isCartOpen)
+    const toggleCartOpen = () => {
+        toggleCart(!isCartOpen)
+    }
     return (
         <div className='cart-icon-container' onClick={toggleCartOpen}>
-            <span className='item-count'>0</span>
+            <span className='item-count'>{cartCount}</span>
             <ShopingBagIcon className='shopping-icon' />
         </div>
     )
